@@ -4,6 +4,9 @@
 ##  Desc:  Installs official Microsoft package repos for the distribution
 ################################################################################
 
+apt-get -yq update
+apt-get install -y lsb-release wget
+
 LSB_RELEASE=$(lsb_release -rs)
 
 # Install Microsoft repository

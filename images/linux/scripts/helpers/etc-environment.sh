@@ -18,7 +18,7 @@ function addEtcEnvironmentVariable {
     variable_name="$1"
     variable_value="$2"
 
-    echo "$variable_name=$variable_value" | sudo tee -a /etc/environment
+    echo "$variable_name=$variable_value" | tee -a /etc/environment
 }
 
 function replaceEtcEnvironmentVariable {
@@ -26,7 +26,7 @@ function replaceEtcEnvironmentVariable {
     variable_value="$2"
 
     # modify /etc/environemnt in place by replacing a string that begins with variable_name
-    sudo sed -i -e "s%^${variable_name}=.*$%${variable_name}=\"${variable_value}\"%" /etc/environment
+    sed -i -e "s%^${variable_name}=.*$%${variable_name}=\"${variable_value}\"%" /etc/environment
 }
 
 function setEtcEnvironmentVariable {
